@@ -61,13 +61,16 @@ with st.sidebar:
             # CONFIGURAÇÃO DA RAG PIPELINE (pode ser personalizada aqui se necessário)
             # Usaremos a configuração padrão da RAGPipeline, que já é in-memory para o vector store
             # Exemplo de como passar uma config customizada, se quisesse persistir:
-            # custom_config = {
-            #     "vector_store_config": {"mode": "persistent", "persist_directory_base": "data/my_persistent_stores"}
-            # }
+            custom_config = {
+                "embedding_config": {"provider": "huggingface"},
+                "llm_config": {"provider": "ollama",
+                               "model_name": "gemma3:1b",
+                               "temperature": 0.3}
+            }
             # st.session_state.rag_pipeline_instance = RAGPipeline(config=custom_config)
 
             try:
-                st.session_state.rag_pipeline_instance = RAGPipeline() # Usa config padrão (in-memory)
+                st.session_state.rag_pipeline_instance = RAGPipeline(custom_config) # Usa config padrão (in-memory)
                 with st.spinner("Analisando o PDF e preparando o agente... Isso pode levar um momento."):
                     setup_success = st.session_state.rag_pipeline_instance.setup_for_pdf(saved_pdf_path)
 

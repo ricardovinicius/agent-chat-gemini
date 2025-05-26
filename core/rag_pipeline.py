@@ -242,7 +242,7 @@ if __name__ == '__main__':
     if os.path.exists(test_pdf_path):
         custom_config = {
              "embedding_config": {"provider": "huggingface"}, # requer GOOGLE_API_KEY
-             "llm_config": {"provider": "ollama", "model_name": "qwen3:1.7b", "temperature": 0.3}
+             "llm_config": {"provider": "ollama", "model_name": "gemma3:1b", "temperature": 0.3}
         }
 
         # Para este teste, vamos usar a configuração padrão (HuggingFace embeddings, Google LLM)
