@@ -1,0 +1,12 @@
+streamlit
+langchain
+langchain-google-genai # Se for usar Google Gemini
+langchain-community # Para componentes como ChromaDB e HuggingFaceEmbeddings
+langchain-huggingface
+langchain-chroma
+langchain-ollama
+protobuf==3.20.3
+chromadb
+pymupdf # Ou pymupdf, dependendo do DocumentLoader escolhido
+sentence-transformers # Para embeddings da Hugging Face
+python-dotenv         # Para carregar variáveis de ambiente do .env
